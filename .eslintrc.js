@@ -14,6 +14,7 @@ module.exports = {
         additionalHooks: '(useRecoilCallback|useRecoilTransaction_UNSTABLE)',
       },
     ],
+    'react/display-name':'off'
   },
   overrides: [
     {
