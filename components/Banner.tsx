@@ -9,7 +9,7 @@ export default function () {
       <Image
         alt=""
         className="absolute h-[100%] w-full"
-        resizeMode="contain"
+        resizeMode="cover"
         source={require('@assets/images/banner.png')}
       />
       <Center className="w-[687px] flex-col">
