@@ -12,6 +12,8 @@
       ],
       "@/assets/*": ["./assets/*"],
       "@/components/*": ["./components/*"],
+      "@/store/*": ["./store/*"],
+      "@type/*": ["type/*"],
     }
   },
   "include": [

@@ -15,6 +15,10 @@ module.exports = {
       },
     ],
     'react/display-name': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      {varsIgnorePattern: '^_', argsIgnorePattern: '^_'}
+    ],
   },
   overrides: [
     {

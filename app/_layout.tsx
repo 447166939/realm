@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { RecoilRoot } from 'recoil';
+import { useWindowDimensions } from 'react-native';
+import { RecoilRoot, useRecoilState } from 'recoil';
 
 import 'react-native-reanimated';
 
@@ -7,17 +8,24 @@ import '@/global.css';
 
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { screenHeightAtom, screenWidthAtom } from '@/store/global';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
-
-export default function RootLayout() {
+function Layout() {
   const colorScheme = useColorScheme();
+  const { width, height } = useWindowDimensions();
+  const [_, setSw] = useRecoilState(screenWidthAtom);
+  const [_h, setSh] = useRecoilState(screenHeightAtom);
+  useEffect(() => {
+    setSw(width);
+    setSh(height);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [width, height]);
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
@@ -31,18 +39,22 @@ export default function RootLayout() {
   if (!loaded) {
     return null;
   }
-
+  return (
+    <GluestackUIProvider mode="light">
+      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="index" />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+        <StatusBar style="auto" />
+      </ThemeProvider>
+    </GluestackUIProvider>
+  );
+}
+export default function RootLayout() {
   return (
     <RecoilRoot>
-      <GluestackUIProvider mode="light">
-        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-          <Stack screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="index" />
-            <Stack.Screen name="+not-found" />
-          </Stack>
-          <StatusBar style="auto" />
-        </ThemeProvider>
-      </GluestackUIProvider>
+      <Layout />
     </RecoilRoot>
   );
 }

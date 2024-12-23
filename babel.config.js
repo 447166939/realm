@@ -23,6 +23,7 @@ module.exports = function (api) {
             'tailwind.config': './tailwind.config.js',
             '@assets': './assets',
             '@components': './components',
+            '@store': './store',            
           },
         },
       ],
