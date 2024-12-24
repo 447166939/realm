@@ -26,6 +26,7 @@ export default function SectionFour() {
         <VStack className="h-full w-[18.6%] border-2 border-black">
           <Center className="w-full flex-1 border-b-2 border-black">
             <Image
+              alt=""
               source={require('@/assets/images/pic1.png')}
               className="absolute -z-10 h-full w-full"
               resizeMode="cover"
@@ -34,6 +35,7 @@ export default function SectionFour() {
           </Center>
           <Center className="w-full flex-1">
             <Image
+              alt=""
               source={require('@/assets/images/pic2.png')}
               className="absolute -z-10 h-full w-full"
               resizeMode="cover"
@@ -44,6 +46,7 @@ export default function SectionFour() {
         <VStack className="h-full w-[24.8%] border-2 border-black">
           <Center className="h-[66.7%] w-full border-b-2 border-black">
             <Image
+              alt=""
               source={require('@/assets/images/pic3.png')}
               className="absolute -z-10 h-full w-full"
               resizeMode="cover"
@@ -53,6 +56,7 @@ export default function SectionFour() {
           <HStack className="w-full flex-1">
             <Center className="h-full flex-1 border-l-2 border-r-2 border-black">
               <Image
+                alt=""
                 source={require('@/assets/images/pic4.png')}
                 className="absolute -z-10 h-full w-full"
                 resizeMode="cover"
@@ -61,6 +65,7 @@ export default function SectionFour() {
             </Center>
             <Center className="h-full flex-1 border-l-2 border-r-2 border-black">
               <Image
+                alt=""
                 source={require('@/assets/images/pic5.png')}
                 className="absolute -z-10 h-full w-full"
                 resizeMode="cover"
@@ -72,6 +77,7 @@ export default function SectionFour() {
         <VStack className="h-full w-[18.6%] border-2 border-black">
           <Center className="w-full flex-1 border-b-2 border-black">
             <Image
+              alt=""
               source={require('@/assets/images/pic6.png')}
               className="absolute -z-10 h-full w-full"
               resizeMode="cover"
@@ -80,6 +86,7 @@ export default function SectionFour() {
           </Center>
           <Center className="w-full flex-1">
             <Image
+              alt=""
               source={require('@/assets/images/pic7.png')}
               className="absolute -z-10 h-full w-full"
               resizeMode="cover"
@@ -90,6 +97,7 @@ export default function SectionFour() {
         <VStack className="h-full flex-1 border-2 border-black">
           <Center className="w-full flex-1">
             <Image
+              alt=""
               source={require('@/assets/images/pic8.png')}
               className="absolute -z-10 h-full w-full"
               resizeMode="cover"

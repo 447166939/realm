@@ -17,7 +17,7 @@ module.exports = {
     'react/display-name': 'off',
     '@typescript-eslint/no-unused-vars': [
       'error',
-      {varsIgnorePattern: '^_', argsIgnorePattern: '^_'}
+      { varsIgnorePattern: '^_', argsIgnorePattern: '^_' },
     ],
   },
   overrides: [
@@ -44,7 +44,7 @@ module.exports = {
             ],
           },
         ],
-        'react-native/no-raw-text': ['error', { skip: ['ThemedText'] }],
+        'react-native/no-raw-text': ['error', { skip: ['ThemedText','ButtonText'] }],
       },
     },
   ],

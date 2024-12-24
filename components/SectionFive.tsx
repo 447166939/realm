@@ -26,6 +26,7 @@ export default function SectionFive() {
         <VStack className="h-full flex-1">
           <Center className="w-full" style={{ height: (561 / 1920) * sw }}>
             <Image
+              alt=""
               source={require('@/assets/images/intro1.png')}
               className="h-full w-full"
               resizeMode="cover"
@@ -45,6 +46,7 @@ export default function SectionFive() {
           <VStack className="h-full flex-1">
             <Center className="w-full" style={{ height: (422 / 1920) * sw }}>
               <Image
+                alt=""
                 source={require('@/assets/images/intro2.png')}
                 className="h-full w-full"
                 resizeMode="cover"
@@ -63,6 +65,7 @@ export default function SectionFive() {
           <VStack className="h-full flex-1">
             <Center className="w-full" style={{ height: (422 / 1920) * sw }}>
               <Image
+                alt=""
                 source={require('@/assets/images/intro3.png')}
                 className="h-full w-full"
                 resizeMode="cover"
@@ -85,6 +88,7 @@ export default function SectionFive() {
           <VStack className="h-full flex-1">
             <Center className="w-full" style={{ height: (422 / 1920) * sw }}>
               <Image
+                alt=""
                 source={require('@/assets/images/intro4.png')}
                 className="h-full w-full"
                 resizeMode="cover"
@@ -103,6 +107,7 @@ export default function SectionFive() {
           <VStack className="h-full flex-1">
             <Center className="w-full" style={{ height: (422 / 1920) * sw }}>
               <Image
+                alt=""
                 source={require('@/assets/images/intro5.png')}
                 className="h-full w-full"
                 resizeMode="cover"
@@ -122,6 +127,7 @@ export default function SectionFive() {
         <VStack className="h-full flex-1">
           <Center className="w-full" style={{ height: (561 / 1920) * sw }}>
             <Image
+              alt=""
               source={require('@/assets/images/intro6.png')}
               className="h-full w-full"
               resizeMode="cover"
