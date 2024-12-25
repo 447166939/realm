@@ -10,7 +10,8 @@
     "web": " cross-env DARK_MODE=media expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build":"npx expo export --platform web"
   },
   "jest": {
     "preset": "jest-expo"
