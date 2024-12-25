@@ -1,19 +1,23 @@
-import { LinearGradient } from './ui/linear-gradient';
+import { useWindowDimensions } from 'react-native';
+
 import { VStack } from './ui/vstack';
 
 import { HStack } from '@/components/ui/hstack';
+import { Image } from '@/components/ui/image';
 import { Text } from '@/components/ui/text';
 export default function SectionOne() {
+  const { width: sw } = useWindowDimensions();
   return (
-    <HStack className="h-[726px] w-full">
-      <LinearGradient
-        className="h-[100%] w-[40%] items-center justify-center"
-        colors={['#2E236F', '#000000', '#000000']}
-        start={[0, 0]}
-        end={[1, 1.8]}
-        locations={[0, 0.3, 1]}>
+    <HStack style={{ height: (726 / 1920) * sw }} className="w-full border-b border-black">
+      <VStack className="h-full w-[40%] items-center justify-center">
+        <Image
+          alt=""
+          source={require('@/assets/images/aboutus_bg.png')}
+          className="absolute -z-10 h-full w-full"
+          resizeMode="cover"
+        />
         <Text className="rotate-[270deg] text-[50px] font-[600] text-[#fff]">关于我们</Text>
-      </LinearGradient>
+      </VStack>
       <VStack className="h-[100%] flex-1 justify-center">
         <VStack className="ml-[16%] w-[526px]">
           <Text className="text-[14px]/[28px] font-[400] text-[#000]/[0.6]">

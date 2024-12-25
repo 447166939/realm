@@ -44,7 +44,7 @@ module.exports = {
             ],
           },
         ],
-        'react-native/no-raw-text': ['error', { skip: ['ThemedText','ButtonText'] }],
+        'react-native/no-raw-text': ['error', { skip: ['ThemedText', 'ButtonText'] }],
       },
     },
   ],

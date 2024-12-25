@@ -4,13 +4,12 @@ import { Button, ButtonText } from '@/components/ui/button';
 import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
 import { Input, InputField } from '@/components/ui/input';
-import { LinearGradient } from '@/components/ui/linear-gradient';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
 export default function SectionSix() {
   const { width: sw } = useWindowDimensions();
   return (
-    <HStack className="h-[726px] w-full">
+    <HStack style={{ height: (726 / 1920) * sw }} className="w-full">
       <VStack className="h-full flex-1 items-center justify-center">
         <VStack className="w-[400px]">
           <Text className="text-[50px] font-[600] leading-none text-[#000]">保持联系</Text>
@@ -63,13 +62,13 @@ export default function SectionSix() {
           </HStack>
         </VStack>
       </VStack>
-      <LinearGradient
-        style={{ width: (768 / 1920) * sw }}
-        colors={['#2E236F', '#000', '#000']}
-        start={[0, 1]}
-        end={[0.5, 0.7]}
-        locations={[0, 0.1, 1]}
-        className="h-full items-center justify-center">
+      <VStack style={{ width: (768 / 1920) * sw }} className="h-full items-center justify-center">
+        <Image
+          className="absolute -z-10 h-full w-full"
+          alt=""
+          resizeMode="cover"
+          source={require('@/assets/images/form_bg.png')}
+        />
         <VStack className="h-[472px] w-[423px]">
           <Text className="text-[18px] font-[400] leading-none text-[#fff]">
             如您有业务 欢迎与我们联系
@@ -103,7 +102,7 @@ export default function SectionSix() {
             <ButtonText className="text-[20px] font-[400] text-[#fff]">提交</ButtonText>
           </Button>
         </VStack>
-      </LinearGradient>
+      </VStack>
     </HStack>
   );
 }

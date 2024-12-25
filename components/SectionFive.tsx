@@ -5,23 +5,24 @@ import { VStack } from './ui/vstack';
 import { Center } from '@/components/ui/center';
 import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
-import { LinearGradient } from '@/components/ui/linear-gradient';
 import { Text } from '@/components/ui/text';
 export default function SectionFive() {
   const { width: sw } = useWindowDimensions();
   return (
     <VStack className="w-full">
-      <LinearGradient
-        colors={['#2E236F', '#000', '#000']}
-        start={[0, 1]}
-        end={[0.5, 0.7]}
-        locations={[0, 0.1, 1]}
-        className="h-[212px] w-full items-center justify-center">
+      <VStack style={{ height: (212 / 1920) * sw }} className="w-full items-center justify-center">
+        <Image
+          alt=""
+          source={require('@/assets/images/intro_bg.png')}
+          className="absolute -z-10 h-full w-full"
+          resizeMode="cover"
+        />
+
         <Text className="text-[50px] font-[600] leading-none text-[#fff]">团队介绍</Text>
         <Text className="mt-[25px] text-[16px] font-[400] leading-none text-[#fff]">
           有任何想法随时与我们团队联系，我们将全力为您服务。
         </Text>
-      </LinearGradient>
+      </VStack>
       <HStack className="w-full" style={{ height: (707 / 1920) * sw }}>
         <VStack className="h-full flex-1">
           <Center className="w-full" style={{ height: (561 / 1920) * sw }}>

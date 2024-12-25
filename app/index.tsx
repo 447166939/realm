@@ -1,6 +1,7 @@
 import { ScrollView } from 'react-native';
 
 import Banner from '@/components/Banner';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import SectionFive from '@/components/SectionFive';
 import SectionFour from '@/components/SectionFour';
@@ -22,6 +23,7 @@ export default function Page() {
         <SectionFour />
         <SectionFive />
         <SectionSix />
+        <Footer />
       </ScrollView>
     </VStack>
   );
