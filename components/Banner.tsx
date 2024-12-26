@@ -16,9 +16,7 @@ export default function Banner() {
 
   const { isPlaying } = useEvent(player, 'playingChange', { isPlaying: player.playing });
   useEffect(() => {
-    if (isPlaying) {
-      player.pause();
-    } else {
+    if (!isPlaying) {
       player.play();
     }
   }, [player, isPlaying]);

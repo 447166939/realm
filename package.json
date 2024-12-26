@@ -11,7 +11,7 @@
     "test": "jest --watchAll",
     "lint": "expo lint .",
     "prepare": "husky install",
-    "build":"npx expo export --platform web"
+    "build": "npx expo export --platform web"
   },
   "jest": {
     "preset": "jest-expo"
@@ -56,7 +56,7 @@
     "react-native-safe-area-context": "^5.0.0",
     "react-native-screens": "~4.1.0",
     "react-native-svg": "^15.2.0",
-    "react-native-swiper": "^1.6.0",
+    "react-native-swiper": "^1.6.0-rc.3",
     "react-native-web": "~0.19.13",
     "react-native-webview": "13.12.5",
     "recoil": "^0.7.7",

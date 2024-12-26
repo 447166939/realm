@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Pressable, useWindowDimensions } from 'react-native';
 
 import { VStack } from './ui/vstack';
@@ -20,10 +20,11 @@ const picArr = [
 export default function SectionFour() {
   const { width: sw } = useWindowDimensions();
   const [showModal, setShowModal] = useState(false);
+  const swiper = useRef<any>(null);
   const [idx, setIdx] = useState(0);
   const handlePress = (index: number) => {
     setShowModal(true);
-    setIdx(index);
+    swiper?.current?.scrollTo(index);
   };
   return (
     <VStack className="w-full">
@@ -140,6 +141,7 @@ export default function SectionFour() {
         </VStack>
       </HStack>
       <BigPicture
+        ref={swiper}
         index={idx}
         setIdx={setIdx}
         picArr={picArr}

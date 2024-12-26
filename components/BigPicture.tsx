@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import { Pressable, StyleSheet, useWindowDimensions } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import Swiper from 'react-native-swiper';
@@ -11,9 +11,15 @@ import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
-export default function BigPicture({ showModal, setShowModal, picArr, index, setIdx }: any) {
+function BigPicture({ showModal, setShowModal, picArr, index, setIdx }: any, ref: any) {
   const { width: sw } = useWindowDimensions();
   const swRef = useRef<any>(null);
+  useImperativeHandle(ref, () => ({
+    scrollTo: (index: number) => {
+      console.log('scroll to index', index);
+      swRef?.current?.scrollTo(index);
+    },
+  }));
   const animateValue = useSharedValue(1);
   const animatedStyle = useAnimatedStyle(() => ({
     opacity: animateValue.value,
@@ -37,7 +43,10 @@ export default function BigPicture({ showModal, setShowModal, picArr, index, set
     }
   };
   const handleNext = () => {
+    console.log('next', picArr);
+    console.log('index', index);
     swRef?.current?.scrollBy(1);
+    // swRef?.current?.scrollTo(4)
     if (index === picArr.length - 1) {
       setIdx(0);
     } else {
@@ -47,35 +56,28 @@ export default function BigPicture({ showModal, setShowModal, picArr, index, set
   const onIndexChange = (index: number) => {
     setIdx(index);
   };
-
   return (
     <Portal isOpen={showModal}>
       <Animated.View style={[styles.container, animatedStyle]}>
         <VStack className="h-lvh w-lvw items-center justify-end">
           <Pressable
             onPress={handleClose}
-            className="absolute bottom-0 left-0 right-0 top-0 h-lvh w-lvw bg-[#000]/[0.3]"></Pressable>
+            className="absolute bottom-0 left-0 right-0 top-0 h-lvh w-lvw bg-[#000]/[0.8]"></Pressable>
           <Pressable
             onPress={handleClose}
             className="absolute right-[38px] top-[38px] h-[27px] w-[27px]">
             <Image className="h-full w-full" alt="" source={require('@/assets/images/close.png')} />
           </Pressable>
-          <VStack
-            className="bg-white"
-            style={{ width: (1178 / 1920) * sw, height: (662 / 1920) * sw }}>
+          <VStack style={{ width: (1178 / 1920) * sw, height: (662 / 1920) * sw }}>
             <Swiper
               index={index}
               showsPagination={false}
-              ref={swRef}
-              showsButtons={false}
               onIndexChanged={onIndexChange}
-              loop
-              style={styles.swiper}>
+              ref={swRef}>
               {picArr.map((item: any, index: number) => (
-                <Image key={index} className="h-full w-full" source={item} resizeMode="cover" />
+                <Image key={index} className="h-full w-full" source={item} resizeMode="contain" />
               ))}
             </Swiper>
-
             <Text className="absolute -top-[48px] left-0 right-0 text-center text-[30px] font-[600] text-[#fff]">
               洛杉矶豪宅项目
             </Text>
@@ -89,6 +91,7 @@ export default function BigPicture({ showModal, setShowModal, picArr, index, set
                 margin: 'auto',
                 left: (-62 / 1920) * sw,
                 position: 'absolute',
+                zIndex: 2000,
               }}>
               <Image
                 className="h-full w-full"
@@ -108,6 +111,7 @@ export default function BigPicture({ showModal, setShowModal, picArr, index, set
                 margin: 'auto',
                 right: (-62 / 1920) * sw,
                 position: 'absolute',
+                zIndex: 2000,
               }}>
               <Image
                 className="h-full w-full"
@@ -214,6 +218,7 @@ export default function BigPicture({ showModal, setShowModal, picArr, index, set
     </Portal>
   );
 }
+export default forwardRef(BigPicture);
 const styles = StyleSheet.create({
   container: {
     bottom: 0,
@@ -223,5 +228,4 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
   },
-  swiper: {},
 });
