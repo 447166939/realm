@@ -5,6 +5,7 @@ import { RecoilRoot, useRecoilState } from 'recoil';
 import 'react-native-reanimated';
 
 import '@/global.css';
+import 'swiper/swiper-bundle.min.css';
 
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -46,7 +47,7 @@ function Layout() {
           <Stack.Screen name="index" />
           <Stack.Screen name="+not-found" />
         </Stack>
-        <StatusBar style="auto" />
+        <StatusBar />
       </ThemeProvider>
     </GluestackUIProvider>
   );

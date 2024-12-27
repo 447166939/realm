@@ -15,9 +15,8 @@ function BigPicture({ showModal, setShowModal, picArr, index, setIdx }: any, ref
   const { width: sw } = useWindowDimensions();
   const swRef = useRef<any>(null);
   useImperativeHandle(ref, () => ({
-    scrollTo: (index: number) => {
-      console.log('scroll to index', index);
-      swRef?.current?.scrollTo(index);
+    scrollTo: (idx: number) => {
+      swRef.current?.scrollTo(idx);
     },
   }));
   const animateValue = useSharedValue(1);
@@ -70,7 +69,10 @@ function BigPicture({ showModal, setShowModal, picArr, index, setIdx }: any, ref
           </Pressable>
           <VStack style={{ width: (1178 / 1920) * sw, height: (662 / 1920) * sw }}>
             <Swiper
-              index={index}
+              loop
+              index={0}
+              width={(1178 / 1920) * sw}
+              height={(662 / 1920) * sw}
               showsPagination={false}
               onIndexChanged={onIndexChange}
               ref={swRef}>
