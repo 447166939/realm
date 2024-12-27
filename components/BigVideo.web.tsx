@@ -3,17 +3,62 @@ import { Pressable, StyleSheet, useWindowDimensions } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 
 import { Button, ButtonText } from './ui/button';
-import { Center } from './ui/center';
 import { VStack } from './ui/vstack';
+import Thumbnail from './Thumbnail';
 
 import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
+import { useEvent } from 'expo';
+import { useVideoPlayer, VideoView } from 'expo-video';
 import SwiperCore, { Controller } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 SwiperCore.use([Controller]); // eslint-disable-line
-function BigPicture({ showModal, setShowModal, picArr, index, setIdx }: any, ref: any) {
+function VideoItem({ source }: any) {
+  const player: any = useVideoPlayer(source, (player) => {
+    player.loop = true;
+    player.muted = true;
+    player.play();
+  });
+  const { isPlaying } = useEvent(player, 'playingChange', { isPlaying: player.playing });
+  const handlePlay = () => {
+    if (isPlaying) {
+      player.pause();
+    } else {
+      player.play();
+    }
+  };
+  return (
+    <>
+      <VideoView
+        contentFit="contain"
+        style={{ position: 'absolute', height: '100%', width: '100%' }}
+        player={player}
+        nativeControls={false}></VideoView>
+      <Pressable
+        style={{
+          width: 40,
+          height: 40,
+          zIndex: 3000,
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0,
+          margin: 'auto',
+        }}
+        onPress={handlePlay}>
+        <Image
+          resizeMode="contain"
+          className="h-[40px] w-[40px]"
+          source={require('@/assets/images/playBtn.png')}
+        />
+      </Pressable>
+    </>
+  );
+}
+function BigVideo({ showModal, setShowModal, videoArr, index, setIdx }: any, ref: any) {
   const idxRef = useRef(0);
   const { width: sw } = useWindowDimensions();
   const [swiper, setSwiper] = useState<any>(null);
@@ -40,14 +85,14 @@ function BigPicture({ showModal, setShowModal, picArr, index, setIdx }: any, ref
   const handlePre = () => {
     swiper?.slidePrev(500);
     if (index === 0) {
-      setIdx(picArr.length - 1);
+      setIdx(videoArr.length - 1);
     } else {
       setIdx(index - 1);
     }
   };
   const handleNext = () => {
     swiper?.slideNext(500);
-    if (index === picArr.length - 1) {
+    if (index === videoArr.length - 1) {
       setIdx(0);
     } else {
       setIdx(index + 1);
@@ -78,9 +123,9 @@ function BigPicture({ showModal, setShowModal, picArr, index, setIdx }: any, ref
               spaceBetween={10}
               slidesPerView={1}
               onSlideChange={() => console.log('slide change')}>
-              {picArr.map((item: any, index: number) => (
+              {videoArr.map((item: any, index: number) => (
                 <SwiperSlide key={index}>
-                  <Image className="h-full w-full" source={item} resizeMode="contain" />
+                  <VideoItem source={item.video} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -130,70 +175,9 @@ function BigPicture({ showModal, setShowModal, picArr, index, setIdx }: any, ref
           <HStack
             className="items-center justify-between"
             style={{ width: (1416 / 1920) * sw, height: (126 / 1920) * sw }}>
-            <Center style={{ width: (169 / 1920) * sw, height: (107 / 1920) * sw }}>
-              <Image
-                className="h-full w-full rounded-[10px]"
-                alt=""
-                source={require('@/assets/images/pic1.png')}
-                resizeMode="cover"
-              />
-            </Center>
-            <Center style={{ width: (169 / 1920) * sw, height: (107 / 1920) * sw }}>
-              <Image
-                className="h-full w-full rounded-[10px]"
-                alt=""
-                source={require('@/assets/images/pic2.png')}
-                resizeMode="cover"
-              />
-            </Center>
-            <Center style={{ width: (169 / 1920) * sw, height: (107 / 1920) * sw }}>
-              <Image
-                className="h-full w-full rounded-[10px]"
-                alt=""
-                source={require('@/assets/images/pic3.png')}
-                resizeMode="cover"
-              />
-            </Center>
-            <Center style={{ width: (169 / 1920) * sw, height: (107 / 1920) * sw }}>
-              <Image
-                className="h-full w-full rounded-[10px]"
-                alt=""
-                source={require('@/assets/images/pic4.png')}
-                resizeMode="cover"
-              />
-            </Center>
-            <Center style={{ width: (169 / 1920) * sw, height: (107 / 1920) * sw }}>
-              <Image
-                className="h-full w-full rounded-[10px]"
-                alt=""
-                source={require('@/assets/images/pic5.png')}
-                resizeMode="cover"
-              />
-            </Center>
-            <Center style={{ width: (169 / 1920) * sw, height: (107 / 1920) * sw }}>
-              <Image
-                className="h-full w-full rounded-[10px]"
-                alt=""
-                source={require('@/assets/images/pic6.png')}
-                resizeMode="cover"
-              />
-            </Center>
-            <Center style={{ width: (169 / 1920) * sw, height: (107 / 1920) * sw }}>
-              <Image
-                className="h-full w-full rounded-[10px]"
-                alt=""
-                source={require('@/assets/images/pic7.png')}
-                resizeMode="cover"
-              />
-            </Center>
-            <Center style={{ width: (169 / 1920) * sw, height: (107 / 1920) * sw }}>
-              <Image
-                className="h-full w-full rounded-[10px]"
-                alt=""
-                source={require('@/assets/images/pic8.png')}
-                resizeMode="cover"
-              />
-            </Center>
+            {videoArr.map((item: any, index: number) => (
+              <Thumbnail source={item.thumbnail} key={index} />
+            ))}
           </HStack>
           <HStack className="h-[64px] w-full items-center justify-between bg-[#000]">
             <HStack>
@@ -224,7 +208,7 @@ function BigPicture({ showModal, setShowModal, picArr, index, setIdx }: any, ref
     </Portal>
   );
 }
-export default forwardRef(BigPicture);
+export default forwardRef(BigVideo);
 const styles = StyleSheet.create({
   container: {
     bottom: 0,
