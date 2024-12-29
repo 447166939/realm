@@ -1,4 +1,4 @@
-import { useWindowDimensions } from 'react-native';
+import { useWindowDimensions, View } from 'react-native';
 
 import { VStack } from './ui/vstack';
 
@@ -7,10 +7,14 @@ import { Center } from '@/components/ui/center';
 import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
 import { Text } from '@/components/ui/text';
-export default function SectionThree() {
+export default function SectionThree({ onLayout }: any) {
   const { width: sw } = useWindowDimensions();
+  const handleLayout = (event: any) => {
+    onLayout(event.nativeEvent.layout);
+    console.log(event.nativeEvent.layout);
+  };
   return (
-    <VStack style={{ height: (sw / 4) * (726 / 481) + 217 }} className={`w-full`}>
+    <View onLayout={handleLayout} style={{ height: (sw / 4) * (726 / 481) + 217, width: '100%' }}>
       <VStack style={{ height: (217 / 1920) * sw }} className="w-full items-center justify-center">
         <Image
           alt=""
@@ -75,6 +79,6 @@ export default function SectionThree() {
           </Center>
         </HoverableView>
       </HStack>
-    </VStack>
+    </View>
   );
 }

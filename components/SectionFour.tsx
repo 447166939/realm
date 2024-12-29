@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { Pressable, useWindowDimensions } from 'react-native';
+import { Pressable, useWindowDimensions, View } from 'react-native';
 
 import { VStack } from './ui/vstack';
 import BigPicture from './BigPicture';
@@ -17,7 +17,7 @@ const picArr = [
   require('@/assets/images/pic7.png'),
   require('@/assets/images/pic8.png'),
 ];
-export default function SectionFour() {
+export default function SectionFour({ onLayout }: any) {
   const { width: sw } = useWindowDimensions();
   const [showModal, setShowModal] = useState(false);
   const swiper = useRef<any>(null);
@@ -26,8 +26,12 @@ export default function SectionFour() {
     setShowModal(true);
     swiper?.current?.scrollTo(index);
   };
+  const handleLayout = (event: any) => {
+    onLayout(event.nativeEvent.layout);
+    console.log(event.nativeEvent.layout);
+  };
   return (
-    <VStack className="w-full">
+    <View onLayout={handleLayout} style={{ width: '100%' }}>
       <VStack style={{ height: (209 / 1920) * sw }} className="w-full items-center justify-center">
         <Image
           alt=""
@@ -148,6 +152,6 @@ export default function SectionFour() {
         showModal={showModal}
         setShowModal={setShowModal}
       />
-    </VStack>
+    </View>
   );
 }

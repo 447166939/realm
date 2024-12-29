@@ -1,4 +1,4 @@
-import { useWindowDimensions } from 'react-native';
+import { useWindowDimensions, View } from 'react-native';
 
 import { VStack } from './ui/vstack';
 
@@ -6,10 +6,14 @@ import { Center } from '@/components/ui/center';
 import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
 import { Text } from '@/components/ui/text';
-export default function SectionFive() {
+export default function SectionFive({ onLayout }: any) {
   const { width: sw } = useWindowDimensions();
+  const handleLayout = (event: any) => {
+    onLayout(event.nativeEvent.layout);
+    console.log(event.nativeEvent.layout);
+  };
   return (
-    <VStack className="w-full">
+    <View onLayout={handleLayout} style={{ width: '100%' }}>
       <VStack style={{ height: (212 / 1920) * sw }} className="w-full items-center justify-center">
         <Image
           alt=""
@@ -145,6 +149,6 @@ export default function SectionFive() {
           </VStack>
         </VStack>
       </HStack>
-    </VStack>
+    </View>
   );
 }

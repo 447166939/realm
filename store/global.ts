@@ -7,3 +7,6 @@ export const screenHeightAtom = atom<number>({
   key: 'sh',
   default: 1080,
 });
+export const scrollViewAtom = atom<number>({
+  key: 'scrollView',
+});

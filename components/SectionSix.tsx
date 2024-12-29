@@ -1,4 +1,4 @@
-import { useWindowDimensions } from 'react-native';
+import { useWindowDimensions, View } from 'react-native';
 
 import { Button, ButtonText } from '@/components/ui/button';
 import { HStack } from '@/components/ui/hstack';
@@ -6,10 +6,16 @@ import { Image } from '@/components/ui/image';
 import { Input, InputField } from '@/components/ui/input';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
-export default function SectionSix() {
+export default function SectionSix({ onLayout }: any) {
   const { width: sw } = useWindowDimensions();
+  const handleLayout = (event: any) => {
+    onLayout(event.nativeEvent.layout);
+    console.log(event.nativeEvent.layout);
+  };
   return (
-    <HStack style={{ height: (726 / 1920) * sw }} className="w-full">
+    <View
+      onLayout={handleLayout}
+      style={{ height: (726 / 1920) * sw, flexDirection: 'row', width: '100%' }}>
       <VStack className="h-full flex-1 items-center justify-center">
         <VStack className="w-[400px]">
           <Text className="text-[50px] font-[600] leading-none text-[#000]">保持联系</Text>
@@ -103,6 +109,6 @@ export default function SectionSix() {
           </Button>
         </VStack>
       </VStack>
-    </HStack>
+    </View>
   );
 }

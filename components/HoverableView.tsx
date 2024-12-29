@@ -8,7 +8,7 @@ export default function HoverableView({ children }: any) {
     flex: animateValue.value,
   }));
   const handleHover = () => {
-    animateValue.value = withSpring(animateValue.value + 0.7);
+    animateValue.value = withSpring(animateValue.value + 0.2);
   };
   const handleHoverout = () => {
     animateValue.value = 1;
