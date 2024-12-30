@@ -29,7 +29,7 @@ module.exports = {
           {
             groups: [
               // Packages `react` related packages come first.
-              ['^react', 'recoil'],
+              ['^react','expo','expo-video', 'recoil','swiper','swiper/react'],
               // Internal packages.
               ['@components/*', '@hooks/*', '@views/*', '@store/*', '@utils/*', '@type/*'],
               // Side effect imports.
