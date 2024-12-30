@@ -38,7 +38,7 @@ export default function SectionFive({ onLayout }: any) {
             />
           </Center>
           <VStack
-            className="w-full flex-1 justify-center border border-black"
+            className="w-full flex-1 justify-center border-b-2 border-t-2 border-black"
             style={{ paddingLeft: (60 / 1920) * sw }}>
             <Text className="text-[30px] font-[400] leading-none text-[#000]">Zion Huang</Text>
             <Text className="mt-[10px] w-[842px] text-[14px] font-[400] leading-none text-[#000]/[0.5]">
@@ -48,7 +48,7 @@ export default function SectionFive({ onLayout }: any) {
           </VStack>
         </VStack>
         <HStack className="h-full flex-1">
-          <VStack className="h-full flex-1">
+          <VStack className="h-full flex-1 border-l-2 border-r-2 border-black">
             <Center className="w-full" style={{ height: (422 / 1920) * sw }}>
               <Image
                 alt=""
@@ -58,7 +58,7 @@ export default function SectionFive({ onLayout }: any) {
               />
             </Center>
             <VStack
-              className="w-full flex-1 justify-center border border-black"
+              className="w-full flex-1 justify-center border-b-2 border-t-2 border-black"
               style={{ paddingLeft: (45 / 1920) * sw }}>
               <Text className="text-[30px] font-[400] leading-none text-[#000]">Zion Huang</Text>
               <Text className="mt-[10px] w-[378px] text-[14px] font-[400] leading-none text-[#000]/[0.5]">
@@ -77,7 +77,7 @@ export default function SectionFive({ onLayout }: any) {
               />
             </Center>
             <VStack
-              className="w-full flex-1 justify-center border border-black"
+              className="w-full flex-1 justify-center border-b-2 border-t-2 border-black"
               style={{ paddingLeft: (45 / 1920) * sw }}>
               <Text className="text-[30px] font-[400] leading-none text-[#000]">Zion Huang</Text>
               <Text className="mt-[10px] w-[378px] text-[14px] font-[400] leading-none text-[#000]/[0.5]">
@@ -90,7 +90,7 @@ export default function SectionFive({ onLayout }: any) {
       </HStack>
       <HStack className="w-full" style={{ height: (707 / 1920) * sw }}>
         <HStack className="h-full flex-1">
-          <VStack className="h-full flex-1">
+          <VStack className="h-full flex-1 border-r-2 border-black">
             <Center className="w-full" style={{ height: (422 / 1920) * sw }}>
               <Image
                 alt=""
@@ -100,7 +100,7 @@ export default function SectionFive({ onLayout }: any) {
               />
             </Center>
             <VStack
-              className="w-full flex-1 justify-center border border-black"
+              className="w-full flex-1 justify-center border-b-2 border-t-2 border-black"
               style={{ paddingLeft: (45 / 1920) * sw }}>
               <Text className="text-[30px] font-[400] leading-none text-[#000]">Zion Huang</Text>
               <Text className="mt-[10px] w-[355px] text-[14px] font-[400] leading-none text-[#000]/[0.5]">
@@ -119,7 +119,7 @@ export default function SectionFive({ onLayout }: any) {
               />
             </Center>
             <VStack
-              className="w-full flex-1 justify-center border border-black"
+              className="w-full flex-1 justify-center border-b-2 border-t-2 border-black"
               style={{ paddingLeft: (45 / 1920) * sw }}>
               <Text className="text-[30px] font-[400] leading-none text-[#000]">Zion Huang</Text>
               <Text className="mt-[10px] w-[355px] text-[14px] font-[400] leading-none text-[#000]/[0.5]">
@@ -129,7 +129,7 @@ export default function SectionFive({ onLayout }: any) {
             </VStack>
           </VStack>
         </HStack>
-        <VStack className="h-full flex-1">
+        <VStack className="h-full flex-1 border-l-2 border-black">
           <Center className="w-full" style={{ height: (561 / 1920) * sw }}>
             <Image
               alt=""
@@ -139,7 +139,7 @@ export default function SectionFive({ onLayout }: any) {
             />
           </Center>
           <VStack
-            className="w-full flex-1 justify-center border border-black"
+            className="w-full flex-1 justify-center border-b-2 border-t-2 border-black"
             style={{ paddingLeft: (60 / 1920) * sw }}>
             <Text className="text-[30px] font-[400] leading-none text-[#000]">Zion Huang</Text>
             <Text className="mt-[10px] w-[842px] text-[14px] font-[400] leading-none text-[#000]/[0.5]">
