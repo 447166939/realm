@@ -10,3 +10,7 @@ export const screenHeightAtom = atom<number>({
 export const scrollViewAtom = atom<number>({
   key: 'scrollView',
 });
+export const hoverIndexAtom = atom<number>({
+  key: 'hoverIndex',
+  default: 0,
+});
