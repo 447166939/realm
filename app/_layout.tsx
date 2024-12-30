@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
 import { useWindowDimensions } from 'react-native';
+import { useFonts } from 'expo-font';
+import { Stack } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
 import { RecoilRoot, useRecoilState } from 'recoil';
 
 import 'react-native-reanimated';
@@ -11,10 +15,6 @@ import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { screenHeightAtom, screenWidthAtom } from '@/store/global';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 function Layout() {

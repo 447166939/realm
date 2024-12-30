@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
+import { LinearGradient as ExpoLinearGradient } from 'expo-linear-gradient';
 
 import { tva } from '@gluestack-ui/nativewind-utils/tva';
-import { LinearGradient as ExpoLinearGradient } from 'expo-linear-gradient';
 import { cssInterop } from 'nativewind';
 
 cssInterop(ExpoLinearGradient, {

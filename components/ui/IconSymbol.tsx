@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { OpaqueColorValue, StyleProp, ViewStyle } from 'react-native';
-
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { SymbolWeight } from 'expo-symbols';
 

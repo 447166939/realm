@@ -1,6 +1,10 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { Pressable, StyleSheet, useWindowDimensions } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
+import { useEvent } from 'expo';
+import { useVideoPlayer, VideoView } from 'expo-video';
+import SwiperCore, { Controller } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Button, ButtonText } from './ui/button';
 import { VStack } from './ui/vstack';
@@ -10,10 +14,6 @@ import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
 import { Portal } from '@/components/ui/portal';
 import { Text } from '@/components/ui/text';
-import { useEvent } from 'expo';
-import { useVideoPlayer, VideoView } from 'expo-video';
-import SwiperCore, { Controller } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
 SwiperCore.use([Controller]); // eslint-disable-line
 function VideoItem({ source }: any) {
   const player: any = useVideoPlayer(source, (player) => {

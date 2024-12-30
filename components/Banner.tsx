@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
+import { useEvent } from 'expo';
+import { useVideoPlayer, VideoView } from 'expo-video';
 
 import { Center } from './ui/center';
 import { HStack } from './ui/hstack';
 
 import { Text } from '@/components/ui/text';
-import { useEvent } from 'expo';
-import { useVideoPlayer, VideoView } from 'expo-video';
 const videoSource = require('@/assets/images/banner.mp4');
 export default function Banner() {
   const player: any = useVideoPlayer(videoSource, (player) => {
