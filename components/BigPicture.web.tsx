@@ -80,7 +80,7 @@ function BigPicture({ showModal, setShowModal, picArr, index, setIdx }: any, ref
               onSlideChange={() => console.log('slide change')}>
               {picArr.map((item: any, index: number) => (
                 <SwiperSlide key={index}>
-                  <Image className="h-full w-full" source={item} resizeMode="contain" />
+                  <Image className="h-full w-full" source={item.bigPic} resizeMode="contain" />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -130,7 +130,17 @@ function BigPicture({ showModal, setShowModal, picArr, index, setIdx }: any, ref
           <HStack
             className="items-center justify-between"
             style={{ width: (1416 / 1920) * sw, height: (126 / 1920) * sw }}>
-            <Center style={{ width: (169 / 1920) * sw, height: (107 / 1920) * sw }}>
+            {picArr.map((item: any, index: number) => (
+              <Center key={index} style={{ width: (169 / 1920) * sw, height: (107 / 1920) * sw }}>
+                <Image
+                  className="h-full w-full rounded-[10px]"
+                  alt=""
+                  source={item.thumb}
+                  resizeMode="cover"
+                />
+              </Center>
+            ))}
+            {/* <Center style={{ width: (169 / 1920) * sw, height: (107 / 1920) * sw }}>
               <Image
                 className="h-full w-full rounded-[10px]"
                 alt=""
@@ -193,7 +203,7 @@ function BigPicture({ showModal, setShowModal, picArr, index, setIdx }: any, ref
                 source={require('@/assets/images/pic8.png')}
                 resizeMode="cover"
               />
-            </Center>
+            </Center> */}
           </HStack>
           <HStack className="h-[64px] w-full items-center justify-between bg-[#000]">
             <HStack>
