@@ -1,19 +1,22 @@
 import { useEffect } from 'react';
 import { useEvent } from 'expo';
 import { useVideoPlayer, VideoView } from 'expo-video';
+import SwiperCore, { Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Center } from './ui/center';
-import { HStack } from './ui/hstack';
+import { Center } from './ui/center/index.web';
+import { HStack } from './ui/hstack/index.web';
+import { VStack } from './ui/vstack/index.web';
 
 import { Text } from '@/components/ui/text';
 const videoSource = require('@/assets/images/banner.mp4');
+SwiperCore.use([Autoplay]); // eslint-disable-line
 export default function Banner() {
   const player: any = useVideoPlayer(videoSource, (player) => {
     player.loop = true;
     player.muted = true;
     player.play();
   });
-
   const { isPlaying } = useEvent(player, 'playingChange', { isPlaying: player.playing });
   // const [showModal, setShowModal] = useState(false);
   // const swiper = useRef<any>(null);
@@ -27,6 +30,7 @@ export default function Banner() {
       player.play();
     }
   }, [player, isPlaying]);
+
   return (
     <HStack
       //onPress={() => handlePress(0)}
@@ -45,9 +49,25 @@ export default function Banner() {
         source={require('@assets/images/BlackHole_Lensing.gif')}
       /> */}
       <Center className="w-[687px] flex-col">
-        <Text className="text-center text-[100px] font-[600] leading-none text-[#fff]">
-          领域地产
-        </Text>
+        <HStack className="w-[400px]">
+          <Text className="text-center text-[100px] font-[600] leading-none text-[#fff]">领域</Text>
+          <VStack className="absolute left-0 h-full w-full translate-x-[100px] overflow-hidden">
+            <Swiper
+              autoplay={{ delay: 500 }}
+              loop
+              spaceBetween={50}
+              direction="vertical"
+              onSlideChange={() => console.log('slide change')}
+              onSwiper={(swiper) => console.log(swiper)}>
+              <SwiperSlide>
+                <Text className="text-[100px] font-[600] leading-none text-[#fff]">地产</Text>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Text className="text-[100px] font-[600] leading-none text-[#fff]">建筑</Text>
+              </SwiperSlide>
+            </Swiper>
+          </VStack>
+        </HStack>
         <Text className="mt-[43px] text-center text-[24px] font-[400] text-[#fff]">{`美国加州 豪宅设计，豪宅施工，豪宅订制，豪宅开发\n执照含: 建筑设计，结构工程，建筑施工综合承包，豪宅地产经纪`}</Text>
       </Center>
       {/*  <BigVideo

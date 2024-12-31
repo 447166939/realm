@@ -5,3 +5,4 @@ declare module '*.jpg';
 declare module 'react-native-snap-carousel';
 declare module 'react-native-reanimated-carousel';
 declare module 'react-video-thumbnail';
+declare module 'swiper/modules';
