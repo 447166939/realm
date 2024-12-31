@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { ScrollView } from 'react-native';
+import { useState } from 'react';
+import Animated, { useAnimatedRef } from 'react-native-reanimated';
 
 import Banner from '@/components/Banner';
 import Footer from '@/components/Footer';
@@ -13,7 +13,7 @@ import SectionTwo from '@/components/SectionTwo';
 import { VStack } from '@/components/ui/vstack';
 
 export default function Page() {
-  const scrollRef = useRef<any>(null);
+  const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const [aboutus, setAboutus] = useState<any>();
   const [service, setService] = useState<any>();
   const [example, setExample] = useState<any>();
@@ -28,7 +28,7 @@ export default function Page() {
         service={service}
         aboutus={aboutus}
         scrollRef={scrollRef}></Header>
-      <ScrollView ref={scrollRef} style={{ flex: 1, width: '100%' }}>
+      <Animated.ScrollView ref={scrollRef} style={{ flex: 1, width: '100%' }}>
         <Banner />
         <SectionOne onLayout={setAboutus} />
         <SectionTwo />
@@ -36,8 +36,8 @@ export default function Page() {
         <SectionFour onLayout={setExample} />
         <SectionFive onLayout={setIntro} />
         <SectionSix onLayout={setInvest} />
-        <Footer />
-      </ScrollView>
+        <Footer scrollRef={scrollRef} />
+      </Animated.ScrollView>
     </VStack>
   );
 }
