@@ -2,7 +2,9 @@ import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
 import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
+import { useLang } from '@/hooks/useLang';
 export default function Header({ scrollRef, aboutus, service, example, intro, invest }: any) {
+  const { lang, setLang } = useLang();
   const goToTop = () => {
     scrollRef.current?.scrollTo({ y: 0, animated: true });
   };
@@ -20,6 +22,13 @@ export default function Header({ scrollRef, aboutus, service, example, intro, in
   };
   const goToInvest = () => {
     scrollRef.current?.scrollTo({ y: invest?.y, animated: true });
+  };
+  const toggleLang = () => {
+    if (lang === 'en') {
+      setLang('zh');
+    } else {
+      setLang('en');
+    }
   };
   return (
     <HStack className="h-[74px] items-center">
@@ -50,21 +59,23 @@ export default function Header({ scrollRef, aboutus, service, example, intro, in
           <Text className="text-[16px] font-[400] text-[#000]/[0.5]">一起投资</Text>
         </Pressable>
       </HStack>
-      <HStack className="ml-auto h-[100%] w-[12.7%] items-center">
+      <Pressable onPress={toggleLang} className="ml-auto h-[100%] w-[12.7%] flex-row items-center">
         <Image
           alt=""
           className="h-[18px] w-[18px]"
           resizeMode="contain"
           source={require('@assets/images/lang.png')}
         />
-        <Text className="mx-[3px] text-[18px] font-[400] text-[#000]">EN</Text>
+        <Text className="mx-[3px] text-[18px] font-[400] text-[#000]">
+          {lang === 'en' ? 'EN' : 'CN'}
+        </Text>
         <Image
           alt=""
           className="h-[4px] w-[4px]"
           resizeMode="contain"
           source={require('@assets/images/lang_down.png')}
         />
-      </HStack>
+      </Pressable>
     </HStack>
   );
 }

@@ -14,6 +14,7 @@ import 'swiper/swiper-bundle.min.css';
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { screenHeightAtom, screenWidthAtom } from '@/store/global';
+import { LangProvider } from '@/utils/lang';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -54,8 +55,10 @@ function Layout() {
 }
 export default function RootLayout() {
   return (
-    <RecoilRoot>
-      <Layout />
-    </RecoilRoot>
+    <LangProvider>
+      <RecoilRoot>
+        <Layout />
+      </RecoilRoot>
+    </LangProvider>
   );
 }
