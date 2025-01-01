@@ -51,7 +51,7 @@ export default function Banner() {
       <Center className="w-[687px] flex-col">
         <HStack className="w-[400px]">
           <Text className="text-center text-[100px] font-[600] leading-none text-[#fff]">领域</Text>
-          <VStack className="absolute left-0 h-full w-full translate-x-[100px] overflow-hidden">
+          <VStack className="absolute left-[100px] h-full w-full overflow-hidden">
             <Swiper
               autoplay={{ delay: 500 }}
               loop

@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { Pressable, useWindowDimensions, View } from 'react-native';
+import { useRecoilState } from 'recoil';
 
 import { VStack } from './ui/vstack';
 import BigPicture from './BigPicture';
@@ -7,6 +8,8 @@ import BigPicture from './BigPicture';
 import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
 import { Text } from '@/components/ui/text';
+import { groupIndexAtom } from '@/store/global';
+//1.tar2.kitchen3.baths4.car5mor6van
 const arr = [
   {
     title: '卫生间项目',
@@ -14,6 +17,19 @@ const arr = [
     thumb: require('@/assets/images/pic1.png'),
     isVideo: false,
     bigPic: require('@/assets/images/bighouse.png'),
+    pics: [
+      { src: require('@/assets/images/bath1.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath2.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath3.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath4.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath5.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath6.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath7.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath8.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath9.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath10.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath11.jpg'), isVideo: false },
+    ],
   },
   {
     title: 'TAR_Proj',
@@ -21,6 +37,19 @@ const arr = [
     thumb: require('@/assets/images/pic2.png'),
     isVideo: false,
     bigPic: require('@/assets/images/bighouse.png'),
+    pics: [
+      { src: require('@/assets/images/tar1.jpg'), isVideo: false },
+      { src: require('@/assets/images/tar2.jpg'), isVideo: false },
+      { src: require('@/assets/images/tar3.jpg'), isVideo: false },
+      { src: require('@/assets/images/tar4.jpg'), isVideo: false },
+      { src: require('@/assets/images/tar5.jpg'), isVideo: false },
+      { src: require('@/assets/images/tar6.jpg'), isVideo: false },
+      { src: require('@/assets/images/tar7.jpg'), isVideo: false },
+      { src: require('@/assets/images/tar8.jpg'), isVideo: false },
+      { src: require('@/assets/images/tar9.jpg'), isVideo: false },
+      { src: require('@/assets/images/tar10.jpg'), isVideo: false },
+      { src: require('@/assets/images/tar11.jpg'), isVideo: false },
+    ],
   },
   {
     title: 'Kitchen_Proj',
@@ -28,6 +57,19 @@ const arr = [
     thumb: require('@/assets/images/pic3.png'),
     isVideo: false,
     bigPic: require('@/assets/images/bighouse.png'),
+    pics: [
+      { src: require('@/assets/images/k1.jpg'), isVideo: false },
+      { src: require('@/assets/images/k2.jpg'), isVideo: false },
+      { src: require('@/assets/images/k3.jpg'), isVideo: false },
+      { src: require('@/assets/images/k4.jpg'), isVideo: false },
+      { src: require('@/assets/images/k5.jpg'), isVideo: false },
+      { src: require('@/assets/images/k6.jpg'), isVideo: false },
+      { src: require('@/assets/images/k7.jpg'), isVideo: false },
+      { src: require('@/assets/images/k8.jpg'), isVideo: false },
+      { src: require('@/assets/images/k9.jpg'), isVideo: false },
+      { src: require('@/assets/images/k10.jpg'), isVideo: false },
+      { src: require('@/assets/images/k11.jpg'), isVideo: false },
+    ],
   },
   {
     title: 'Bath_Proj',
@@ -35,6 +77,19 @@ const arr = [
     thumb: require('@/assets/images/pic4.png'),
     isVideo: false,
     bigPic: require('@/assets/images/bighouse.png'),
+    pics: [
+      { src: require('@/assets/images/bath1.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath2.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath3.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath4.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath5.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath6.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath7.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath8.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath9.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath10.jpg'), isVideo: false },
+      { src: require('@/assets/images/bath11.jpg'), isVideo: false },
+    ],
   },
   {
     title: 'CAR_Proj',
@@ -42,6 +97,22 @@ const arr = [
     thumb: require('@/assets/images/pic5.png'),
     isVideo: false,
     bigPic: require('@/assets/images/bighouse.png'),
+    pics: [
+      { src: require('@/assets/images/car1.jpg'), isVideo: false },
+      { src: require('@/assets/images/car2.jpg'), isVideo: false },
+      { src: require('@/assets/images/car3.jpg'), isVideo: false },
+      { src: require('@/assets/images/car4.jpg'), isVideo: false },
+      { src: require('@/assets/images/car5.jpg'), isVideo: false },
+      { src: require('@/assets/images/car6.jpg'), isVideo: false },
+      { src: require('@/assets/images/car7.jpg'), isVideo: false },
+      { src: require('@/assets/images/car8.jpg'), isVideo: false },
+      { src: require('@/assets/images/car9.jpg'), isVideo: false },
+      { src: require('@/assets/images/car10.jpg'), isVideo: false },
+      { src: require('@/assets/images/car11.jpg'), isVideo: false },
+      { src: require('@/assets/images/car12.jpg'), isVideo: false },
+      { src: require('@/assets/images/car13.jpg'), isVideo: false },
+      { src: require('@/assets/images/car14.jpg'), isVideo: false },
+    ],
   },
   {
     title: 'MOR_Proj',
@@ -49,6 +120,20 @@ const arr = [
     thumb: require('@/assets/images/pic6.png'),
     isVideo: false,
     bigPic: require('@/assets/images/bighouse.png'),
+    pics: [
+      { src: require('@/assets/images/mor1.jpg'), isVideo: false },
+      { src: require('@/assets/images/mor2.jpg'), isVideo: false },
+      { src: require('@/assets/images/mor3.jpg'), isVideo: false },
+      { src: require('@/assets/images/mor4.jpg'), isVideo: false },
+      { src: require('@/assets/images/mor5.jpg'), isVideo: false },
+      { src: require('@/assets/images/mor6.jpg'), isVideo: false },
+      { src: require('@/assets/images/mor7.jpg'), isVideo: false },
+      { src: require('@/assets/images/mor8.jpg'), isVideo: false },
+      { src: require('@/assets/images/mor9.jpg'), isVideo: false },
+      { src: require('@/assets/images/mor10.jpg'), isVideo: false },
+      { src: require('@/assets/images/mor11.jpg'), isVideo: false },
+      { src: require('@/assets/images/mor12.jpg'), isVideo: false },
+    ],
   },
   {
     title: 'Van_Proj',
@@ -56,6 +141,15 @@ const arr = [
     thumb: require('@/assets/images/pic7.png'),
     isVideo: false,
     bigPic: require('@/assets/images/bighouse.png'),
+    pics: [
+      { src: require('@/assets/images/van1.jpg'), isVideo: false },
+      { src: require('@/assets/images/van2.jpg'), isVideo: false },
+      { src: require('@/assets/images/van3.jpg'), isVideo: false },
+      { src: require('@/assets/images/van4.jpg'), isVideo: false },
+      { src: require('@/assets/images/van5.jpg'), isVideo: false },
+      { src: require('@/assets/images/van6.jpg'), isVideo: false },
+      { src: require('@/assets/images/van7.jpg'), isVideo: false },
+    ],
   },
   {
     title: '厨房项目',
@@ -63,16 +157,36 @@ const arr = [
     thumb: require('@/assets/images/pic8.png'),
     isVideo: false,
     bigPic: require('@/assets/images/bighouse.png'),
+    pics: [
+      { src: require('@/assets/images/k1.jpg'), isVideo: false },
+      { src: require('@/assets/images/k2.jpg'), isVideo: false },
+      { src: require('@/assets/images/k3.jpg'), isVideo: false },
+      { src: require('@/assets/images/k4.jpg'), isVideo: false },
+      { src: require('@/assets/images/k5.jpg'), isVideo: false },
+      { src: require('@/assets/images/k6.jpg'), isVideo: false },
+      { src: require('@/assets/images/k7.jpg'), isVideo: false },
+      { src: require('@/assets/images/k8.jpg'), isVideo: false },
+      { src: require('@/assets/images/k9.jpg'), isVideo: false },
+      { src: require('@/assets/images/k10.jpg'), isVideo: false },
+      { src: require('@/assets/images/k11.jpg'), isVideo: false },
+    ],
   },
 ];
 export default function SectionFour({ onLayout }: any) {
   const { width: sw } = useWindowDimensions();
   const [showModal, setShowModal] = useState(false);
-  const swiper = useRef<any>(null);
-  const [idx, setIdx] = useState(0);
+  const [_idx, setIdx] = useRecoilState(groupIndexAtom);
   const handlePress = (index: number) => {
     setShowModal(true);
-    swiper?.current?.scrollTo(index);
+    console.log('index===', index);
+    //1.tar2.kitchen3.baths4.car5mor6van
+    if (index === 0) {
+      setIdx(3);
+    } else if (index === 7) {
+      setIdx(2);
+    } else {
+      setIdx(index);
+    }
   };
   const handleLayout = (event: any) => {
     onLayout(event.nativeEvent.layout);
@@ -192,14 +306,7 @@ export default function SectionFour({ onLayout }: any) {
           </Pressable>
         </VStack>
       </HStack>
-      <BigPicture
-        ref={swiper}
-        index={idx}
-        setIdx={setIdx}
-        picArr={arr}
-        showModal={showModal}
-        setShowModal={setShowModal}
-      />
+      <BigPicture arr={arr} showModal={showModal} setShowModal={setShowModal} />
     </View>
   );
 }

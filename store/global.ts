@@ -14,3 +14,11 @@ export const hoverIndexAtom = atom<number>({
   key: 'hoverIndex',
   default: 0,
 });
+export const picsAtom = atom<any[]>({
+  key: 'pics',
+  default: [],
+});
+export const groupIndexAtom = atom<number>({
+  key: 'groupIndex',
+  default: 0,
+});
