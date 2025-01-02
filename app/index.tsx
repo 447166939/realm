@@ -13,6 +13,7 @@ import SectionFourSm from '@/components/SectionFourSm';
 import SectionOne from '@/components/SectionOne';
 import SectionOneSm from '@/components/SectionOneSm';
 import SectionSix from '@/components/SectionSix';
+import SectionSixSm from '@/components/SectionSixSm';
 import SectionThree from '@/components/SectionThree';
 import SectionThreeSm from '@/components/SectionThreeSm';
 import SectionTwo from '@/components/SectionTwo';
@@ -85,7 +86,11 @@ export default function Page() {
         ) : (
           <SectionFiveSm onLayout={setIntro} />
         )}
-        <SectionSix onLayout={setInvest} />
+        {isLargeScreen ? (
+          <SectionSix onLayout={setInvest} />
+        ) : (
+          <SectionSixSm onLayout={setInvest} />
+        )}
         <Footer scrollRef={scrollRef} />
       </Animated.ScrollView>
     </VStack>
