@@ -10,6 +10,7 @@ import 'react-native-reanimated';
 
 import '@/global.css';
 import 'swiper/swiper-bundle.min.css';
+import 'swiper/components/pagination/pagination.min.css';
 
 import { GluestackUIProvider } from '@/components/ui/gluestack-ui-provider';
 import { useColorScheme } from '@/hooks/useColorScheme';

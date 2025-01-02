@@ -1,29 +1,19 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "moduleSuffixes": [".ios", ".native", ".android",".web",""],
+    "moduleSuffixes": [".ios", ".native", ".android", ".web", ""],
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "tailwind.config": [
-        "./tailwind.config.js"
-      ],
+      "@/*": ["./*"],
+      "tailwind.config": ["./tailwind.config.js"],
       "@/assets/*": ["./assets/*"],
       "@/components/*": ["./components/*"],
       "@/store/*": ["./store/*"],
       "@/type/*": ["./type/*"],
       "@/utils/*": ["./utils/*"],
-      "@/hooks/*": ["./hooks/*"],
+      "@/hooks/*": ["./hooks/*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    "nativewind-env.d.ts"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts", "nativewind-env.d.ts"]
 }

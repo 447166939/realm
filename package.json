@@ -11,7 +11,8 @@
     "test": "jest --watchAll",
     "lint": "expo lint .",
     "prepare": "husky install",
-    "build": "npx expo export --platform web"
+    "build": "npx expo export --platform web",
+    "prettier": "prettier . --write"
   },
   "jest": {
     "preset": "jest-expo"
