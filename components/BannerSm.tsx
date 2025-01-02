@@ -27,7 +27,9 @@ export default function Banner() {
   }, [player, isPlaying]);
 
   return (
-    <HStack style={{ height: (1200 / 750) * sw }} className="flex-row items-center justify-center">
+    <HStack
+      style={{ height: (1200 / 750) * sw }}
+      className="flex-row items-center justify-center bg-black">
       <VideoView
         contentFit="cover"
         style={{ position: 'absolute', height: '100%', width: '100%' }}
