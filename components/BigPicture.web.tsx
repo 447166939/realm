@@ -203,7 +203,10 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
             className="absolute right-[38px] top-[38px] h-[27px] w-[27px]">
             <Image className="h-full w-full" alt="" source={require('@/assets/images/close.png')} />
           </Pressable>
-          <VStack style={{ width: (1178 / 1920) * sw, height: (662 / 1920) * sw }}>
+          <VStack style={{ flex: 1, aspectRatio: 1172 / 658 }}>
+            <Text className="mb-[9px] mt-[24px] text-center text-[30px] font-[600] text-[#fff]">
+              {(idx && arr[idx].title) || '所有项目'}
+            </Text>
             <Swiper
               thumbs={{ swiper: thumb && !thumb.destroyed ? thumb : null }}
               loop
@@ -225,9 +228,6 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
                 </SwiperSlide>
               ))}
             </Swiper>
-            <Text className="absolute -top-[48px] left-0 right-0 text-center text-[30px] font-[600] text-[#fff]">
-              洛杉矶豪宅项目
-            </Text>
             <Pressable
               onPress={handlePre}
               style={{
