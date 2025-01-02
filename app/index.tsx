@@ -4,6 +4,7 @@ import Animated, { useAnimatedRef } from 'react-native-reanimated';
 import Banner from '@/components/Banner';
 import BannerSm from '@/components/BannerSm';
 import Footer from '@/components/Footer';
+import FooterSm from '@/components/FooterSm';
 import Header from '@/components/Header';
 import HeaderSm from '@/components/Headersm';
 import SectionFive from '@/components/SectionFive';
@@ -91,7 +92,7 @@ export default function Page() {
         ) : (
           <SectionSixSm onLayout={setInvest} />
         )}
-        <Footer scrollRef={scrollRef} />
+        {isLargeScreen ? <Footer scrollRef={scrollRef} /> : <FooterSm scrollRef={scrollRef} />}
       </Animated.ScrollView>
     </VStack>
   );
