@@ -36,7 +36,7 @@ export default function SectionThree({ onLayout }: any) {
         </Text>
         <Text
           style={{ width: (572 / 750) * sw, marginTop: (52 / 750) * sw, fontSize: (26 / 750) * sw }}
-          className="font-[400] leading-relaxed text-[#fff]">{`团队设计师来自美国顶级名校: 宾夕法尼亚大学，南加州大学，南加州大学建筑学院，伯克利大学等`}</Text>
+          className="font-[400] leading-relaxed text-[#fff]">{`团队设计师来自美国顶级名校: 宾夕法尼亚大学， 南加州大学，南加州大学建筑学院，伯克利大学等`}</Text>
       </Center>
       <Center style={{ height: (1130 / 750) * sw }}>
         <Image
