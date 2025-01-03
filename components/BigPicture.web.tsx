@@ -29,8 +29,8 @@ const allpics = [
   { src: require('@/assets/images/bath7.jpg'), isVideo: false },
   { src: require('@/assets/images/bath8.jpg'), isVideo: false },
   { src: require('@/assets/images/bath9.jpg'), isVideo: false },
-  { src: require('@/assets/images/bath10.jpg'), isVideo: false },
-  { src: require('@/assets/images/bath11.jpg'), isVideo: false },
+  // { src: require('@/assets/images/bath10.jpg'), isVideo: false },
+  //{ src: require('@/assets/images/bath11.jpg'), isVideo: false },
   { src: require('@/assets/images/tar1.jpg'), isVideo: false },
   { src: require('@/assets/images/tar2.jpg'), isVideo: false },
   { src: require('@/assets/images/tar3.jpg'), isVideo: false },
@@ -68,9 +68,9 @@ const allpics = [
   { src: require('@/assets/images/car13.jpg'), isVideo: false },
   { src: require('@/assets/images/car14.jpg'), isVideo: false },
   { src: require('@/assets/images/mor1.jpg'), isVideo: false },
-  { src: require('@/assets/images/mor2.jpg'), isVideo: false },
-  { src: require('@/assets/images/mor3.jpg'), isVideo: false },
-  { src: require('@/assets/images/mor4.jpg'), isVideo: false },
+  //{ src: require('@/assets/images/mor2.jpg'), isVideo: false },
+  //{ src: require('@/assets/images/mor3.jpg'), isVideo: false },
+  //{ src: require('@/assets/images/mor4.jpg'), isVideo: false },
   { src: require('@/assets/images/mor5.jpg'), isVideo: false },
   { src: require('@/assets/images/mor6.jpg'), isVideo: false },
   { src: require('@/assets/images/mor7.jpg'), isVideo: false },
@@ -134,6 +134,7 @@ function VideoItem({ source }: any) {
 export default function BigPicture({ showModal, setShowModal, arr }: any) {
   const { width: sw } = useWindowDimensions();
   const [idx, setIdx] = useRecoilState(groupIndexAtom);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [swiper, setSwiper] = useState<any>(null);
   const [pics, setPics] = useRecoilState(picsAtom);
   const [thumb, setThumb] = useState<any>(null);
@@ -150,7 +151,6 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
   }, [showModal, animateValue]);
   //1.tar2.kitchen3.baths4.car5mor6van
   useEffect(() => {
-    console.log('effect idx', idx);
     if (idx === 0) {
       setPics(allpics);
     } else {
@@ -174,6 +174,9 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
   };
   const handlePressBaths = () => {
     setIdx(3);
+  };
+  const handleCurrentIndex = (cur: any) => {
+    setCurrentIndex(cur.realIndex);
   };
   const handleNextGroup = () => {
     //1.tar2.kitchen3.baths4.car5mor6van
@@ -200,14 +203,22 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
             className="absolute bottom-0 left-0 right-0 top-0 h-lvh w-lvw bg-[#000]/[0.8]"></Pressable>
           <Pressable
             onPress={handleClose}
-            className="absolute right-[38px] top-[38px] h-[27px] w-[27px]">
+            className="absolute right-[38px] top-[38px] z-50 mt-[30px] h-[27px] w-[27px]">
             <Image className="h-full w-full" alt="" source={require('@/assets/images/close.png')} />
           </Pressable>
-          <VStack style={{ flex: 1, aspectRatio: 1172 / 658 }}>
+          <VStack
+            style={{
+              flex: 1,
+              aspectRatio: 1172 / 658,
+              marginTop: 30,
+              borderWidth: 2,
+              borderColor: '#000',
+            }}>
             <Text className="mb-[9px] mt-[24px] text-center text-[30px] font-[600] text-[#fff]">
               {(idx && arr[idx].title) || '所有项目'}
             </Text>
             <Swiper
+              onRealIndexChange={handleCurrentIndex}
               thumbs={{ swiper: thumb && !thumb.destroyed ? thumb : null }}
               loop
               controller={{ control: swiper }}
@@ -217,7 +228,7 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
               style={{ width: '100%', height: '100%' }}
               spaceBetween={10}
               slidesPerView={1}
-              onSlideChange={() => console.log('slide change')}>
+              onSlideChange={(s) => console.log('slide change', s)}>
               {pics.map((item: any, index: number) => (
                 <SwiperSlide key={index}>
                   {item.isVideo ? (
@@ -269,7 +280,7 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
             </Pressable>
           </VStack>
           <HStack
-            className="mt-[10px] items-center justify-between"
+            className="mt-[40px] items-center justify-between"
             style={{ width: (1416 / 1920) * sw, height: (107 / 1920) * sw }}>
             <Swiper
               className="mySwiper"
@@ -323,7 +334,7 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
                 <ButtonText className="text-[20px] font-[400] text-[#fff]">下一组</ButtonText>
               </Button>
               <Text className="ml-[35px] mr-[19px] align-middle text-[20px] font-[400] text-[#fff]/[0.6]">
-                12/32
+                {`${currentIndex + 1}/${pics.length}`}
               </Text>
             </HStack>
           </HStack>
