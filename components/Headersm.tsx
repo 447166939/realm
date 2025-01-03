@@ -2,6 +2,8 @@
 import { Image, Pressable, useWindowDimensions } from 'react-native';
 
 import { HStack } from '@/components/ui/hstack';
+import { Text } from '@/components/ui/text';
+import { useLang } from '@/hooks/useLang';
 export default function Header({
   scrollRef: _s,
   aboutus: _a,
@@ -10,8 +12,15 @@ export default function Header({
   intro: _in,
   invest: _inv,
 }: any) {
-  // const { lang, setLang } = useLang();
+  const { lang, setLang } = useLang();
   const { width: sw } = useWindowDimensions();
+  const toggleLang = () => {
+    if (lang === 'en') {
+      setLang('zh');
+    } else {
+      setLang('en');
+    }
+  };
   /* const goToTop = () => {
     scrollRef.current?.scrollTo({ y: 0, animated: true });
   };
@@ -30,13 +39,7 @@ export default function Header({
   const goToInvest = () => {
     scrollRef.current?.scrollTo({ y: invest?.y, animated: true });
   };
-  const toggleLang = () => {
-    if (lang === 'en') {
-      setLang('zh');
-    } else {
-      setLang('en');
-    }
-  }; */
+   */
   return (
     <HStack
       style={{
@@ -53,14 +56,37 @@ export default function Header({
           source={require('@/assets/images/logoSm.png')}
         />
       </Pressable>
-      <Pressable>
+      <Pressable onPress={toggleLang} style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <Image
+          style={{ width: (18 / 750) * sw, height: (18 / 750) * sw }}
+          alt=""
+          resizeMode="contain"
+          source={require('@assets/images/lang.png')}
+        />
+        <Text
+          style={{
+            marginLeft: (3 / 750) * sw,
+            marginRight: (3 / 750) * sw,
+            fontSize: (18 / 750) * sw,
+          }}
+          className="font-[400] text-[#000]">
+          {lang === 'en' ? 'EN' : 'CN'}
+        </Text>
+        <Image
+          style={{ width: (4 / 750) * sw, height: (4 / 750) * sw }}
+          alt=""
+          resizeMode="contain"
+          source={require('@assets/images/lang_down.png')}
+        />
+      </Pressable>
+      {/*  <Pressable>
         <Image
           style={{ width: (25 / 750) * sw, height: (25 / 750) * sw }}
           alt=""
           resizeMode="contain"
           source={require('@/assets/images/hamburger.png')}
         />
-      </Pressable>
+      </Pressable> */}
     </HStack>
   );
 }
