@@ -35,7 +35,7 @@ export default function Banner() {
 
   return (
     <HStack
-      style={{ height: 0.82 * sh }}
+      style={{ height: 0.821 * sh }}
       //onPress={() => handlePress(0)}
       className="flex-row items-center justify-center">
       <VideoView
