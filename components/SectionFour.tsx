@@ -207,11 +207,11 @@ export default function SectionFour({ onLayout }: any) {
         </Text>
       </VStack>
       {/*****原来 24.89% 16.7%*/}
-      <HStack className="w-full" style={{ height: (722 / 1920) * sw }}>
-        <VStack className="h-full basis-[21.15%] border-2 border-black">
+      <HStack className="w-full" style={{ height: (722 / 1920) * sw, backgroundColor: '#000' }}>
+        <VStack className="h-full basis-[21.15%] bg-black pr-[4px]">
           <Pressable
             onPress={() => handlePress(0)}
-            className="w-full flex-1 items-center justify-center border-b-2 border-black">
+            className="w-full flex-1 items-center justify-center">
             <Image
               alt=""
               source={arr[0].src}
@@ -221,10 +221,10 @@ export default function SectionFour({ onLayout }: any) {
             <Text className="text-[24px] font-[600] text-[#fff]">{arr[0].title}</Text>
           </Pressable>
         </VStack>
-        <VStack className="h-full basis-[19.2%] border-2 border-black">
+        <VStack className="h-full basis-[19.2%] bg-black pr-[4px]">
           <Pressable
             onPress={() => handlePress(1)}
-            className="w-full flex-1 items-center justify-center">
+            className="w-full flex-1 items-center justify-center bg-black pb-[4px]">
             <Image
               alt=""
               source={arr[1].src}
@@ -245,10 +245,10 @@ export default function SectionFour({ onLayout }: any) {
             <Text className="text-[24px] font-[600] text-[#fff]">{arr[2].title}</Text>
           </Pressable>
         </VStack>
-        <VStack className="h-full basis-[19.2%] border-2 border-black">
+        <VStack className="h-full basis-[19.2%] bg-black pr-[4px]">
           <Pressable
             onPress={() => handlePress(3)}
-            className="w-full flex-1 items-center justify-center">
+            className="w-full flex-1 items-center justify-center bg-black pb-[4px]">
             <Image
               alt=""
               source={arr[3].src}
@@ -269,10 +269,10 @@ export default function SectionFour({ onLayout }: any) {
             <Text className="text-[24px] font-[600] text-[#fff]">{arr[4].title}</Text>
           </Pressable>
         </VStack>
-        <VStack className="h-full basis-[19.2%] border-2 border-black">
+        <VStack className="h-full basis-[19.2%] bg-black pr-[4px]">
           <Pressable
             onPress={() => handlePress(5)}
-            className="w-full flex-1 items-center justify-center">
+            className="w-full flex-1 items-center justify-center bg-black pb-[4px]">
             <Image
               alt=""
               source={arr[5].src}
@@ -293,7 +293,7 @@ export default function SectionFour({ onLayout }: any) {
             <Text className="text-[24px] font-[600] text-[#fff]">{arr[6].title}</Text>
           </Pressable>
         </VStack>
-        <VStack className="h-full basis-[21.15%] border-2 border-black">
+        <VStack className="h-full basis-[21.15%]">
           <Pressable
             onPress={() => handlePress(7)}
             className="w-full flex-1 items-center justify-center">
