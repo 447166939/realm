@@ -42,7 +42,7 @@ export default function SectionThree({ onLayout }: any) {
         <Image
           alt=""
           style={{ position: 'absolute', zIndex: -10, width: '100%', height: '100%' }}
-          source={require('@/assets/images/house1_sm.png')}
+          source={require('@/assets/images/house2_sm.png')}
           resizeMode="cover"
         />
         <Text style={{ fontSize: (62 / 750) * sw }} className="font-[600] leading-none text-[#fff]">
@@ -56,7 +56,7 @@ export default function SectionThree({ onLayout }: any) {
         <Image
           alt=""
           style={{ position: 'absolute', zIndex: -10, width: '100%', height: '100%' }}
-          source={require('@/assets/images/house1_sm.png')}
+          source={require('@/assets/images/house3_sm.png')}
           resizeMode="cover"
         />
         <Text style={{ fontSize: (62 / 750) * sw }} className="font-[600] leading-none text-[#fff]">
@@ -70,7 +70,7 @@ export default function SectionThree({ onLayout }: any) {
         <Image
           alt=""
           style={{ position: 'absolute', zIndex: -10, width: '100%', height: '100%' }}
-          source={require('@/assets/images/house1_sm.png')}
+          source={require('@/assets/images/house4_sm.png')}
           resizeMode="cover"
         />
         <Text style={{ fontSize: (62 / 750) * sw }} className="font-[600] leading-none text-[#fff]">
