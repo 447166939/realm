@@ -10,7 +10,7 @@ import { HStack } from './ui/hstack/index.web';
 import { VStack } from './ui/vstack/index.web';
 
 import { Text } from '@/components/ui/text';
-const videoSource = require('@/assets/images/banner.mp4');
+const videoSource = require('@/assets/images/banner_sm.mp4');
 SwiperCore.use([Autoplay]); // eslint-disable-line
 export default function Banner() {
   const player: any = useVideoPlayer(videoSource, (player) => {
