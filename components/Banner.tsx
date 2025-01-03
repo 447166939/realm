@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useWindowDimensions } from 'react-native';
 import { useEvent } from 'expo';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import SwiperCore, { Autoplay } from 'swiper';
@@ -18,6 +19,7 @@ export default function Banner() {
     player.play();
   });
   const { isPlaying } = useEvent(player, 'playingChange', { isPlaying: player.playing });
+  const { height: sh } = useWindowDimensions();
   // const [showModal, setShowModal] = useState(false);
   // const swiper = useRef<any>(null);
   //const [idx, setIdx] = useState(0);
@@ -33,8 +35,9 @@ export default function Banner() {
 
   return (
     <HStack
+      style={{ height: 0.82 * sh }}
       //onPress={() => handlePress(0)}
-      className="h-[760px] flex-row items-center justify-center">
+      className="flex-row items-center justify-center">
       <VideoView
         contentFit="cover"
         style={{ position: 'absolute', height: '100%', width: '100%' }}
