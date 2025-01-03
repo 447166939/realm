@@ -53,7 +53,7 @@ export default function Banner() {
           <Text className="text-center text-[100px] font-[600] leading-none text-[#fff]">领域</Text>
           <VStack className="absolute left-[100px] h-full w-full overflow-hidden">
             <Swiper
-              autoplay={{ delay: 500 }}
+              autoplay={{ delay: 3000 }}
               loop
               spaceBetween={50}
               direction="vertical"
