@@ -47,7 +47,7 @@ export default function Header({ scrollRef, aboutus, service, example, intro, in
           <Text className="text-[16px] font-[400] text-[#000]/[0.5]">关于我们</Text>
         </Pressable>
         <Pressable onPress={goToService}>
-          <Text className="text-[16px] font-[400] text-[#000]/[0.5]">我们的服务</Text>
+          <Text className="text-[16px] font-[400] text-[#000]/[0.5]">服务内容</Text>
         </Pressable>
         <Pressable onPress={goToExample}>
           <Text className="text-[16px] font-[400] text-[#000]/[0.5]">案例展示</Text>
@@ -56,7 +56,7 @@ export default function Header({ scrollRef, aboutus, service, example, intro, in
           <Text className="text-[16px] font-[400] text-[#000]/[0.5]">团队介绍</Text>
         </Pressable>
         <Pressable onPress={goToInvest}>
-          <Text className="text-[16px] font-[400] text-[#000]/[0.5]">一起投资</Text>
+          <Text className="text-[16px] font-[400] text-[#000]/[0.5]">联系我们</Text>
         </Pressable>
       </HStack>
       <Pressable onPress={toggleLang} className="ml-auto h-[100%] w-[12.7%] flex-row items-center">
