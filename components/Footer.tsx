@@ -32,7 +32,7 @@ export default function Footer({ scrollRef }: any) {
             //[layout.current?.y||0-sh,layout.current?.y||0-sh/2+234/1920*sw,(468/1920)*sw+layout.current?.y||0],
             [
               (layout.current?.y || 0) - sh / 2 - (300 / 1920) * sw,
-              (layout.current?.y || 0) - (260 / 1920) * sw,
+              (layout.current?.y || 0) - (280 / 1920) * sw,
               (layout.current?.y || 0) + sh,
             ],
             //[7598,8000,8318],
