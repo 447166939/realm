@@ -60,7 +60,6 @@ export default function Banner() {
               loop
               spaceBetween={50}
               direction="vertical"
-              onSlideChange={() => console.log('slide change')}
               onSwiper={(swiper) => console.log(swiper)}>
               <SwiperSlide>
                 <Text className="text-[100px] font-[600] leading-none text-[#fff]">地产</Text>

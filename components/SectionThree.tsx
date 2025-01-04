@@ -10,7 +10,6 @@ export default function SectionThree({ onLayout }: any) {
   const { width: sw } = useWindowDimensions();
   const handleLayout = (event: any) => {
     onLayout(event.nativeEvent.layout);
-    console.log(event.nativeEvent.layout);
   };
   return (
     <View onLayout={handleLayout} style={{ height: (sw / 4) * (726 / 481) + 217, width: '100%' }}>

@@ -178,7 +178,6 @@ export default function SectionFour({ onLayout }: any) {
   const [_idx, setIdx] = useRecoilState(groupIndexAtom);
   const handlePress = (index: number) => {
     setShowModal(true);
-    console.log('index===', index);
     //1.tar2.kitchen3.baths4.car5mor6van
     if (index === 0) {
       setIdx(3);
@@ -190,7 +189,6 @@ export default function SectionFour({ onLayout }: any) {
   };
   const handleLayout = (event: any) => {
     onLayout(event.nativeEvent.layout);
-    console.log(event.nativeEvent.layout);
   };
   return (
     <View onLayout={handleLayout} style={{ width: '100%' }}>

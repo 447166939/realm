@@ -10,7 +10,6 @@ export default function SectionSix({ onLayout }: any) {
   const { width: sw } = useWindowDimensions();
   const handleLayout = (event: any) => {
     onLayout(event.nativeEvent.layout);
-    console.log(event.nativeEvent.layout);
   };
   return (
     <View
