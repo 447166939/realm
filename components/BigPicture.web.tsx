@@ -219,7 +219,7 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
             </Text>
             <Swiper
               onRealIndexChange={handleCurrentIndex}
-              thumbs={{ swiper: thumb && !thumb.destroyed ? thumb : null }}
+              thumbs={{ swiper: thumb && !thumb.destroyed ? thumb : null, autoScrollOffset: 1 }}
               loop
               controller={{ control: swiper }}
               onSwiper={(s) => {
@@ -287,14 +287,11 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
               loop
               watchSlidesProgress={true}
               watchSlidesVisibility={true}
-              controller={{ control: thumb }}
-              onSwiper={(s) => {
-                setThumb(s);
-              }}
+              freeMode
+              onSwiper={setThumb}
               style={{ width: '100%', height: '100%' }}
               spaceBetween={10}
-              slidesPerView={8}
-              onSlideChange={() => console.log('slide change')}>
+              slidesPerView={8}>
               {pics.map((item: any, index: number) => (
                 <SwiperSlide key={index}>
                   {item.isVideo ? (
