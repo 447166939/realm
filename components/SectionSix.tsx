@@ -62,7 +62,7 @@ export default function SectionSix({ onLayout }: any) {
               source={require('@/assets/images/icon4.png')}
             />
             <Text className="text-[14px] font-[400] leading-none text-[#000]/[0.6]">
-              8326 Valley Blvd, Unit A Rosemead, CA 91770, Los Angeles
+              12 Hidden Crk, Irvine, CA 92620
             </Text>
           </HStack>
         </VStack>
