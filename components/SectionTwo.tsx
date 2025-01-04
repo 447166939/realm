@@ -22,7 +22,7 @@ export default function SectionTwo() {
             <Text className="my-[16px] text-[16px] font-[600] leading-none text-[#000]">
               Realm 领域建筑合伙人
             </Text>
-            <Text className="w-[307px] text-[14px] font-[400] leading-7 text-[#000]/[0.6]">{`毕业于南加州大学建筑系，曾在国内外多次获得设计竞赛奖名次。毕业后转型就职于科技行业，曾就职于Facebook, Amazon作为软件工程师。
+            <Text className="w-[307px] text-[14px] font-[400] leading-7 text-[#000]/[0.6]">{`毕业于南加州大学建筑系，曾在国内外多次获得设计竞赛奖名次。
 
 2021年一次偶然机会接触房地产投资，从10万美金的老房翻新做起，一直到数百万美金的豪宅翻新，累计翻新，改造，加建，新建单元超过一百座。至2025年获得: 建筑设计，建筑施工，地产经纪执照，在行业摸爬滚打4年有余，积累的大量的经验，最终专注于豪宅开发。
 

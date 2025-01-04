@@ -41,8 +41,7 @@ export default function SectionFive({ onLayout }: any) {
             style={{ paddingLeft: (60 / 1920) * sw }}>
             <Text className="text-[30px] font-[400] leading-none text-[#000]">Zion Huang</Text>
             <Text className="mt-[10px] w-[842px] text-[14px] font-[400] leading-loose text-[#000]/[0.5]">
-              毕业于南加州大学建筑系，曾在国内外多次获得设计竞赛奖名次。毕业后尝试转型科技行业，曾就职于Facebook,
-              Amazon作为工程师。现在作为地产投资人以及豪宅建商，持有建筑施工综合执照，水电空调执照。职业地产开发建商，为客户定制豪宅，开发豪宅保驾护航。
+              {`毕业于南加州大学建筑系，曾在国内外多次获得设计竞赛奖名次。作为地产投资人以及豪宅建商，持有建筑施工综合执照，水电空调执照。职业地产开发建商，为客户定制豪宅，开发豪宅保驾护航。`}
             </Text>
           </VStack>
         </VStack>
@@ -120,8 +119,8 @@ export default function SectionFive({ onLayout }: any) {
               className="w-full flex-1 justify-center border-b-2 border-t-2 border-black"
               style={{ paddingLeft: (45 / 1920) * sw }}>
               <Text className="text-[30px] font-[400] leading-none text-[#000]">Nathan Salmon</Text>
-              <Text className="mt-[10px] w-[355px] text-[14px] font-[400] leading-loose text-[#000]/[0.5]">
-                地产投资人，翻新房开发商。在行业拥有多年的投资开发经验，累计在旧金山湾区以及洛杉矶地区开发翻新豪宅多达50余套，平均收益为30%/项目。熟悉房屋翻新开发的各个流程，主要负责公司本地化运营，房产开发咨询。
+              <Text className="mt-[10px] w-[376px] text-[14px] font-[400] leading-loose text-[#000]/[0.5]">
+                {`地产投资人，翻新房开发商。在行业拥有多年的投资开发经验，累计在旧金山湾区以及洛杉矶地区开发翻新豪宅多达50余套，平均收益为30%/项目。熟悉房屋翻新开发的各个流程，主要负责公司本地化运营，房产开发咨询。`}
               </Text>
             </VStack>
           </VStack>
@@ -140,8 +139,7 @@ export default function SectionFive({ onLayout }: any) {
             style={{ paddingLeft: (60 / 1920) * sw }}>
             <Text className="text-[30px] font-[400] leading-none text-[#000]">Sam Liu</Text>
             <Text className="mt-[10px] w-[842px] text-[14px] font-[400] leading-loose text-[#000]/[0.5]">
-              毕业于纽约大学建筑系，在建筑设计和施工行业有超过10余年的独立经营管理经验。累计设计和批复建筑新建，改建超过百余座，在加州特别是洛杉矶地区有丰富的政府审批经验以及施工设计经验。持有:
-              建筑师，建筑施工执照。
+              {`毕业于纽约大学建筑系，在建筑设计和施工行业有超过10余年的独立经营管理经验。累计设计和批复建筑新建，改建超过百余座，在加州特别是洛杉矶地区有丰富的政府审批经验以及施工设计经验。持有: 建筑师，建筑施工执照。`}
             </Text>
           </VStack>
         </VStack>
