@@ -200,7 +200,7 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
         <VStack className="h-lvh w-lvw items-center justify-end">
           <Pressable
             onPress={handleClose}
-            className="absolute bottom-0 left-0 right-0 top-0 h-lvh w-lvw bg-[#000]/[0.8]"></Pressable>
+            className="absolute bottom-0 left-0 right-0 top-0 -z-10 h-lvh w-lvw bg-[#000]/[0.8]"></Pressable>
           <Pressable
             onPress={handleClose}
             className="absolute right-[38px] top-[38px] z-50 mt-[30px] h-[27px] w-[27px]">
@@ -219,7 +219,7 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
             </Text>
             <Swiper
               onRealIndexChange={handleCurrentIndex}
-              thumbs={{ swiper: thumb && !thumb.destroyed ? thumb : null, autoScrollOffset: 1 }}
+              thumbs={{ swiper: thumb && !thumb.destroyed ? thumb : null }}
               loop
               controller={{ control: swiper }}
               onSwiper={(s) => {
@@ -284,9 +284,9 @@ export default function BigPicture({ showModal, setShowModal, arr }: any) {
             style={{ width: (1416 / 1920) * sw, height: (107 / 1920) * sw }}>
             <Swiper
               className="mySwiper"
-              loop
               watchSlidesProgress={true}
               watchSlidesVisibility={true}
+              loop
               freeMode
               onSwiper={setThumb}
               style={{ width: '100%', height: '100%' }}

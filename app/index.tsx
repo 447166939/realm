@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Animated, { useAnimatedRef } from 'react-native-reanimated';
+import { useRecoilState } from 'recoil';
 
 import Banner from '@/components/Banner';
 import BannerSm from '@/components/BannerSm';
@@ -21,6 +22,7 @@ import SectionTwo from '@/components/SectionTwo';
 import SectionTwoSm from '@/components/SectionTwoSm';
 import { useMediaQuery } from '@/components/ui/utils/use-media-query';
 import { VStack } from '@/components/ui/vstack';
+import { headerIndexAtom } from '@/store/global';
 
 export default function Page() {
   const [_isMobile, _isTablet, _isSmallScreen, isLargeScreen] = useMediaQuery([
@@ -45,6 +47,21 @@ export default function Page() {
   const [example, setExample] = useState<any>();
   const [intro, setIntro] = useState<any>();
   const [invest, setInvest] = useState<any>();
+  const [_idx, setIdx] = useRecoilState(headerIndexAtom);
+  const handleScroll = ({ nativeEvent }: any) => {
+    let y = nativeEvent.contentOffset.y;
+    if (y >= aboutus.y && y < service.y) {
+      setIdx(0);
+    } else if (y >= service.y && y < example.y) {
+      setIdx(1);
+    } else if (y >= example.y && y < intro.y) {
+      setIdx(2);
+    } else if (y >= intro.y && y < invest.y) {
+      setIdx(3);
+    } else if (y >= invest.y) {
+      setIdx(4);
+    }
+  };
   return (
     <VStack className="w-full flex-1 bg-[#fff]">
       {isLargeScreen ? (
@@ -64,7 +81,11 @@ export default function Page() {
           aboutus={aboutus}
           scrollRef={scrollRef}></HeaderSm>
       )}
-      <Animated.ScrollView ref={scrollRef} style={{ flex: 1, width: '100%' }}>
+      <Animated.ScrollView
+        scrollEventThrottle={500}
+        onScroll={handleScroll}
+        ref={scrollRef}
+        style={{ flex: 1, width: '100%' }}>
         {isLargeScreen ? <Banner /> : <BannerSm />}
         {isLargeScreen ? (
           <SectionOne onLayout={setAboutus} />

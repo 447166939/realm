@@ -22,3 +22,7 @@ export const groupIndexAtom = atom<number>({
   key: 'groupIndex',
   default: 0,
 });
+export const headerIndexAtom = atom<number>({
+  key: 'headerIndex',
+  default: 0,
+});

@@ -1,10 +1,14 @@
+import { useRecoilValue } from 'recoil';
+
 import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
 import { Pressable } from '@/components/ui/pressable';
 import { Text } from '@/components/ui/text';
 import { useLang } from '@/hooks/useLang';
+import { headerIndexAtom } from '@/store/global';
 export default function Header({ scrollRef, aboutus, service, example, intro, invest }: any) {
   const { lang, setLang } = useLang();
+  const idx = useRecoilValue(headerIndexAtom);
   const goToTop = () => {
     scrollRef.current?.scrollTo({ y: 0, animated: true });
   };
@@ -42,20 +46,35 @@ export default function Header({ scrollRef, aboutus, service, example, intro, in
           />
         </Pressable>
       </HStack>
-      <HStack className="ml-[11.3%] w-[34.7%] items-center justify-between">
-        <Pressable onPress={goToAboutus}>
+      <HStack className="ml-[11.3%] h-full w-[34.7%] justify-between">
+        <Pressable className="justify-center" onPress={goToAboutus}>
+          {idx === 0 ? (
+            <HStack className="absolute bottom-0 left-0 right-0 h-[4px] bg-[#323FEA]"></HStack>
+          ) : null}
           <Text className="text-[16px] font-[400] text-[#000]/[0.5]">关于我们</Text>
         </Pressable>
-        <Pressable onPress={goToService}>
+        <Pressable className="justify-center" onPress={goToService}>
+          {idx === 1 ? (
+            <HStack className="absolute bottom-0 left-0 right-0 h-[4px] bg-[#323FEA]"></HStack>
+          ) : null}
           <Text className="text-[16px] font-[400] text-[#000]/[0.5]">服务内容</Text>
         </Pressable>
-        <Pressable onPress={goToExample}>
+        <Pressable className="justify-center" onPress={goToExample}>
+          {idx === 2 ? (
+            <HStack className="absolute bottom-0 left-0 right-0 h-[4px] bg-[#323FEA]"></HStack>
+          ) : null}
           <Text className="text-[16px] font-[400] text-[#000]/[0.5]">案例展示</Text>
         </Pressable>
-        <Pressable onPress={goToIntro}>
+        <Pressable className="justify-center" onPress={goToIntro}>
+          {idx === 3 ? (
+            <HStack className="absolute bottom-0 left-0 right-0 h-[4px] bg-[#323FEA]"></HStack>
+          ) : null}
           <Text className="text-[16px] font-[400] text-[#000]/[0.5]">团队介绍</Text>
         </Pressable>
-        <Pressable onPress={goToInvest}>
+        <Pressable className="justify-center" onPress={goToInvest}>
+          {idx === 4 ? (
+            <HStack className="absolute bottom-0 left-0 right-0 h-[4px] bg-[#323FEA]"></HStack>
+          ) : null}
           <Text className="text-[16px] font-[400] text-[#000]/[0.5]">联系我们</Text>
         </Pressable>
       </HStack>
