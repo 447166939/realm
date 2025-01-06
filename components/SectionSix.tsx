@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useWindowDimensions, View } from 'react-native';
 
 import { Button, ButtonText } from '@/components/ui/button';
@@ -6,10 +7,47 @@ import { Image } from '@/components/ui/image';
 import { Input, InputField } from '@/components/ui/input';
 import { Text } from '@/components/ui/text';
 import { VStack } from '@/components/ui/vstack';
+//import  axios from 'axios'
 export default function SectionSix({ onLayout }: any) {
   const { width: sw } = useWindowDimensions();
+  const [name, setName] = useState('');
+  const [familyName, setFamilyName] = useState('');
+  const [email, setEmail] = useState('');
+  const [tel, setTel] = useState('');
   const handleLayout = (event: any) => {
     onLayout(event.nativeEvent.layout);
+  };
+  const changeName = (text: string) => {
+    setName(text);
+  };
+  const changeFamilyName = (text: string) => {
+    setFamilyName(text);
+  };
+  const changeEmail = (text: string) => {
+    setEmail(text);
+  };
+  const changeTel = (text: string) => {
+    setTel(text);
+  };
+  const handleSubmit = () => {
+    let data = new FormData();
+    data.append('data[name]', name);
+    data.append('data[familyName]', familyName);
+    data.append('data[_emailAddress]', email);
+    data.append('data[tel]', tel);
+    /* axios({
+  url: 'https://api.mailslurp.com/forms?_to=18750880958@163.com',
+  method: 'POST',
+  data: data,
+  headers: {
+   
+            'Content-Type' : 'multipart/form-data',
+            'x-api-key':'c65f273becf49da945fb060b0ee98a80e459105b896ad3eac689cecad2e6c176'
+         // 'Authorization':'Basic YnJva2VyOmJyb2tlcl8xMjM='
+
+  }
+}).then((resp:any) => console.log(resp.data.response))
+.catch((error:any) => console.error(error)); */
   };
   return (
     <View
@@ -83,25 +121,26 @@ export default function SectionSix({ onLayout }: any) {
           </Text>
           <HStack className="mt-[10px]">
             <Input className="h-[50px] flex-1 bg-white" variant="outline">
-              <InputField placeholder="名" />
+              <InputField value={name} onChangeText={changeName} placeholder="名" />
             </Input>
             <Input className="ml-[23px] h-[50px] flex-1 bg-white" variant="outline">
-              <InputField placeholder="姓" />
+              <InputField value={familyName} onChangeText={changeFamilyName} placeholder="姓" />
             </Input>
           </HStack>
           <Text className="mt-[25px] text-[14px] font-[400] leading-none text-[#fff]/[0.6]">
             邮箱
           </Text>
           <Input variant="outline" className="mt-[7px] h-[50px] bg-white">
-            <InputField placeholder="邮箱地址" />
+            <InputField value={email} onChangeText={changeEmail} placeholder="邮箱地址" />
           </Input>
           <Text className="mt-[25px] text-[14px] font-[400] leading-none text-[#fff]/[0.6]">
             电话
           </Text>
           <Input className="mt-[7px] h-[50px] bg-white">
-            <InputField placeholder="电话号码" />
+            <InputField value={tel} onChangeText={changeTel} placeholder="电话号码" />
           </Input>
           <Button
+            onPress={handleSubmit}
             variant="outline"
             className="mt-[70px] h-[70px] w-[181px] border-2 border-white bg-[#010101]">
             <ButtonText className="text-[20px] font-[400] text-[#fff]">提交</ButtonText>
