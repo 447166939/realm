@@ -6,10 +6,14 @@ import { HStack } from '@/components/ui/hstack';
 import { Image } from '@/components/ui/image';
 import { Input, InputField } from '@/components/ui/input';
 import { Text } from '@/components/ui/text';
+import { Toast, ToastDescription, ToastTitle, useToast } from '@/components/ui/toast';
 import { VStack } from '@/components/ui/vstack';
+import { send } from '@/utils/sendEmail';
 //import  axios from 'axios'
 export default function SectionSix({ onLayout }: any) {
   const { width: sw } = useWindowDimensions();
+  const toast = useToast();
+  const [toastId, setToastId] = useState(0);
   const [name, setName] = useState('');
   const [familyName, setFamilyName] = useState('');
   const [email, setEmail] = useState('');
@@ -29,12 +33,45 @@ export default function SectionSix({ onLayout }: any) {
   const changeTel = (text: string) => {
     setTel(text);
   };
-  const handleSubmit = () => {
-    let data = new FormData();
+  const clear = () => {
+    setName('');
+    setEmail('');
+    setTel('');
+    setFamilyName('');
+  };
+  const showNewToast = () => {
+    const newId = Math.random();
+    setToastId(newId);
+    toast.show({
+      id: newId + '',
+      placement: 'top',
+      duration: 3000,
+      render: ({ id }) => {
+        const uniqueToastId = 'toast-' + id;
+        return (
+          <Toast action="success" variant="solid" nativeID={uniqueToastId}>
+            <ToastTitle>Send Successful</ToastTitle>
+            <ToastDescription>You have send Email successful!</ToastDescription>
+          </Toast>
+        );
+      },
+    });
+  };
+  const handleToast = async () => {
+    if (!toast.isActive(toastId + '')) {
+      showNewToast();
+    }
+  };
+  const handleSubmit = async () => {
+    /*  let data = new FormData();
     data.append('data[name]', name);
     data.append('data[familyName]', familyName);
     data.append('data[_emailAddress]', email);
-    data.append('data[tel]', tel);
+    data.append('data[tel]', tel); */
+    await send({ name, familyName, tel, email });
+    clear();
+    await handleToast();
+
     /* axios({
   url: 'https://api.mailslurp.com/forms?_to=18750880958@163.com',
   method: 'POST',
