@@ -71,9 +71,14 @@ export default function Banner() {
           </VStack>
         </HStack>
         <Text
-          style={{ fontSize: (30 / 750) * sw, marginTop: (43 / 750) * sw, lineHeight: 1.2 }}
+          style={{
+            fontSize: (30 / 750) * sw,
+            marginTop: (43 / 750) * sw,
+            lineHeight: 1.2,
+            width: (477 / 750) * sw,
+          }}
           className="text-center font-[400] text-[#fff]">{`美国加州 豪宅设计，豪宅施工，豪宅订制，豪宅开发\n
-          执照含: 建筑设计，结构工程，建筑\n施工综合承包，\n
+          执照含: 建筑设计，结构工程，建筑施工综合承包,
           水电空调`}</Text>
       </Center>
     </HStack>
