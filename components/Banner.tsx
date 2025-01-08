@@ -70,7 +70,7 @@ export default function Banner() {
             </Swiper>
           </VStack>
         </HStack>
-        <Text className="mt-[43px] text-center text-[24px] font-[400] text-[#fff]">{`美国加州 豪宅设计，豪宅施工，豪宅订制，豪宅开发\n执照含: 建筑设计，结构工程，建筑施工综合承包，豪宅地产经纪`}</Text>
+        <Text className="mt-[43px] text-center text-[24px] font-[400] text-[#fff]">{`美国加州 豪宅设计，豪宅施工，豪宅订制，豪宅开发\n执照含: 建筑设计，结构工程，建筑施工综合承包，水电空调`}</Text>
       </Center>
       {/*  <BigVideo
         ref={swiper}

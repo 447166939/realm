@@ -35,7 +35,7 @@ export default function SectionThree({ onLayout }: any) {
           />
           <Center className="absolute bottom-0 left-0 right-0 top-0">
             <Text className="text-[40px] font-[600] leading-none text-[#fff]">豪宅设计</Text>
-            <Text className="mt-[12px] w-[337px] text-[16px] font-[400] leading-relaxed text-[#fff]">{`团队设计师来自美国顶级名校: 宾夕法尼亚大学,\n南加州大学，南加州大学建筑学院，伯克利大学等`}</Text>
+            <Text className="mt-[12px] w-[308px] text-[14px] font-[400] leading-relaxed text-[#fff]">{`团队设计师来自美国顶级名校: 宾夕法尼亚大学，\n南加州大学，南加州大学建筑学院，伯克利大学等`}</Text>
           </Center>
         </HoverableView>
         <HoverableView index={2}>
