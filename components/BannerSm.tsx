@@ -47,7 +47,7 @@ export default function Banner() {
             style={{ left: (100 / 750) * sw }}
             className="absolute h-full w-full overflow-hidden">
             <Swiper
-              autoplay={{ delay: 500 }}
+              autoplay={{ delay: 3000 }}
               loop
               spaceBetween={50}
               direction="vertical"
